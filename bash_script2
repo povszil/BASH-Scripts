@@ -1,0 +1,7 @@
+#!/bin/bash
+if [[ $1 = "y" ]]
+then echo "Yes"
+elif [[ $1 = "n" ]]
+then echo "No"
+else echo "wrong"
+fi

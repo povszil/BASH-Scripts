@@ -1,0 +1,72 @@
+#!/bin/bash
+
+
+
+# Functions - Start
+# --- Example 1 ---
+function for_loop1 (){
+for i in 1 2 3 4 5;
+do
+  echo "$i"
+done
+}
+# --- example 2 ---
+function for_loop2 (){
+for i in $(ls /opt/websh)
+do
+   echo "$i"
+done
+}
+# --- Example 3 ---
+
+function for_loop3 (){
+for i in `ls /opt/websh` # same as the previous  but with ` ` using less resources
+do
+   echo "$i"
+done
+}
+# --- Example 4 ---
+function for_seq1 () {
+for i in $(seq 1 30)
+do
+  printf "$i,"
+done
+echo ""
+}
+# --- Example 5 ---
+function for_seq2 () {
+for i in $(seq 1 5 50) # 5 is the increment number
+do
+  printf "$i ,"
+done
+echo ""
+}
+# -- example 6 ---
+function while1 () {
+COUNT=0
+while [ $COUNT -lt 6 ]
+do
+  echo "Current Count is: $COUNT"
+  let COUNT=COUNT+1
+done
+}
+# --- Example 7 ---
+function  read_line () {
+while read LINE
+do
+  echo "$LINE"
+done < /etc/crontab
+}
+
+# Functions - End
+
+# Call Functions - Start
+for_loop1 
+for_loop2
+for_loop3
+for_seq1
+for_seq2
+while1
+read_line
+# Call Functions - End
+exit 75 #Testing exit value with echo $?
